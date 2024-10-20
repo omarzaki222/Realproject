@@ -12,9 +12,7 @@
 
     - name: Build Docker image from Dockerfile
       command: docker build -t ansible-img .
-      args:
-        chdir: /path/to/your/dockerfile  # Change to your Dockerfile's directory if needed
-
+      
     - name: Tag the image
       command: docker tag ansible-img omarzaki222/python
 
