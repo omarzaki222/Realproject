@@ -7,14 +7,14 @@
       ignore_errors: yes
 
     - name: Remove old container
-      command: sudo docker rm -f ansi
+      command: docker rm -f ansi
       ignore_errors: yes
 
     - name: Build Docker image from Dockerfile
-      command: sudo docker build -t ansible-img .
+      command: docker build -t ansible-img .
 
     - name: Tag the image
-      command: sudo docker tag ansible-img omarzaki222/python
+      command: docker tag ansible-img omarzaki222/python
 
     - name: Run container from ansible-img
-      command: sudo docker run -d --name ansi -p 5000:5000 ansible-img
+      command: docker run -d --name ansi -p 5000:5000 ansible-img
