@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 8087
+EXPOSE 5000
 
 # Command to run the application using Waitress
-CMD ["waitress-serve", "--host=0.0.0.0", "--port=8087", "app:app"]
+CMD ["waitress-serve", "--host=0.0.0.0", "--port=5000", "app:app"]

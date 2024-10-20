@@ -1,23 +1,22 @@
 ---
-- name: "build container with ansible"
+- name: "Build and run Docker container with Ansible"
   hosts: localhost
   tasks:
-  - name: remove old container
-    command: docker stop ansi
-    ignore_errors: yes
-  
-  - name: remove old container
-    command: docker rm -f ansi
-    ignore_errors: yes
-    
-  - name: build docker image from dockerfile
-    command: docker build -t ansible-img .
+    - name: Remove old container if it exists
+      command: docker stop ansi
+      ignore_errors: yes
 
-  - name: build docker image from dockerfile
-    command: docker build -t ansible-img .
-  
-  - name: create tag to image
-    command: docker tag ansible-img omarzaki222/python
+    - name: Remove old container
+      command: docker rm -f ansi
+      ignore_errors: yes
 
-  - name: run container from ansible-img
-    command: docker run -d --name ansi -p 5000:5000 ansible-img
+    - name: Build Docker image from Dockerfile
+      command: docker build -t ansible-img .
+      args:
+        chdir: /path/to/your/dockerfile  # Change to your Dockerfile's directory if needed
+
+    - name: Tag the image
+      command: docker tag ansible-img omarzaki222/python
+
+    - name: Run container from ansible-img
+      command: docker run -d --name ansi -p 5000:5000 ansible-img
