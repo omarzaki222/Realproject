@@ -3,18 +3,18 @@
   hosts: localhost
   tasks:
     - name: Remove old container if it exists
-      command: docker stop ansi
+      command: sudo docker stop ansi
       ignore_errors: yes
 
     - name: Remove old container
-      command: docker rm -f ansi
+      command: sudo docker rm -f ansi
       ignore_errors: yes
 
     - name: Build Docker image from Dockerfile
-      command: docker build -t ansible-img .
-      
+      command: sudo docker build -t ansible-img .
+
     - name: Tag the image
-      command: docker tag ansible-img omarzaki222/python
+      command: sudo docker tag ansible-img omarzaki222/python
 
     - name: Run container from ansible-img
-      command: docker run -d --name ansi -p 5000:5000 ansible-img
+      command: sudo docker run -d --name ansi -p 5000:5000 ansible-img
