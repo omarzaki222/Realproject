@@ -18,6 +18,11 @@
 
     - name: Run container from ansible-img
       command: docker run -d --name ansi -p 5000:5000 ansible-img
+    - name: Login to Docker Hub
+      command: echo "{{ docker_hub_password }}" | docker login -u "{{ docker_hub_username }}" --password-stdin
+      vars:
+        docker_hub_username: "omarzaki222"  # Replace with your Docker Hub username
+        docker_hub_password: "01118001235@ZzZ"    # Replace with your Docker Hub password
 
     - name: Push Docker image to Docker Hub
       command: docker push omarzaki222/python
