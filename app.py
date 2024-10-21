@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "<h1>ked kolo tmm yana ya anta!</h1>"
+    return "<h1>fo2 tt7t ymen shmal</h1>"
 
 if __name__ == "__main__":
     from waitress import serve
